@@ -1,9 +1,9 @@
 import {useEffect, useState} from 'react';
 import {Pressable, SafeAreaView, StyleSheet, Text, View} from 'react-native';
-import {ApolloProvider} from '@apollo/client';
+//import {ApolloProvider} from '@apollo/client';
 
 import NfcManager, {NfcTech, Ndef} from 'react-native-nfc-manager';
-import {client} from './src/apollo';
+//import {client} from './src/apollo';
 import Upload from './src/Upload';
 
 const App = () => {
@@ -41,7 +41,7 @@ const App = () => {
     await NfcManager.registerTagEvent();
   };
 
-  const writeNdef = async ({type, value}) => {
+  const writeNdef = async () => {
     let result = false;
     console.warn('write');
 
@@ -60,7 +60,7 @@ const App = () => {
 
   return (
     <SafeAreaView style={styles.sectionContainer}>
-      <ApolloProvider client={client}>{/* <Upload /> */}</ApolloProvider>
+      {/* <ApolloProvider client={client}><Upload /></ApolloProvider> */}
 
       <Text>Hello world</Text>
       <Pressable style={[styles.btn, styles.btnScan]} onPress={readTag}>
